@@ -26,13 +26,10 @@
     <% end %>
   </div>
 
-  <!-- #crear una nueva guess -->
-  <%= form.fields_for :guesses do |ff| %>
-    <div class="field">
-      <%= ff.label :name %>
-      <%= ff.text_field :name %>
-    </div>
-  <% end %>
+  <!-- #crear una nueva guess - Formulario utilizado por cocoon-->
+  <div class="links">
+    <%= link_to_add_association 'Agregar otra cabala', form, :guesses%>
+  </div>
 
   <div class="field">
     <%= form.label :age %>
