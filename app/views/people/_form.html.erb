@@ -16,7 +16,7 @@
     <%= form.text_field :name %>
   </div>
   
-  <!-- Muestra en el formulario de people los guesses disponibles -->
+  <!-- #Muestra en el formulario de people los guesses disponibles -->
   <div class="field">
     <%= form.label :guesses %>
     <%= form.collection_check_boxes(:guess_ids, Guess.all, :id, :name) do |g| %> 
@@ -25,6 +25,14 @@
       <% end %>
     <% end %>
   </div>
+
+  <!-- #crear una nueva guess -->
+  <%= form.fields_for :guesses do |ff| %>
+    <div class="field">
+      <%= ff.label :name %>
+      <%= ff.text_field :name %>
+    </div>
+  <% end %>
 
   <div class="field">
     <%= form.label :age %>

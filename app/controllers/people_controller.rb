@@ -13,6 +13,8 @@ class PeopleController < ApplicationController
   # GET /people/new
   def new
     @person = Person.new
+
+    @person.guesses.build
   end
 
   # GET /people/1/edit
@@ -65,6 +67,6 @@ class PeopleController < ApplicationController
     # Only allow a list of trusted parameters through.
     # Permitir los parametros de Guess
     def person_params
-      params.require(:person).permit(:name, :age, {guess_ids: []})
+      params.require(:person).permit(:name, :age, {guess_ids: []}, {guesses_attributes: [:id, :name]})
     end
 end
